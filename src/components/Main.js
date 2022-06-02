@@ -12,10 +12,8 @@ import Rubius from '../assets/rubius.jpg'
 import Trump from '../assets/trump.jpg'
 
 export default function Main (props) {
-  const [score, setScore] = useState({
-    currentScore: 0,
-    bestScore: 0
-  })
+  const [currentScore, setCurrentScore] = useState(0)
+  const [bestScore, setBestScore] = useState(0)
 
   const [cardsArray, setCardsArray] = useState([
     {
@@ -51,25 +49,56 @@ export default function Main (props) {
     }
   ])
 
+  const resetGame = () => {
+    console.log('reset game')
+
+    shuffleCards()
+    setCurrentScore(0)
+    resetClicks()
+  }
+
+  const shuffleCards = () => {
+    console.log('shuffled')
+  }
+
+
+  const addOneToScore = () => {
+    if (bestScore > currentScore) {
+      setCurrentScore(currentScore + 1)
+    } else {
+      setCurrentScore(currentScore + 1)
+      setBestScore(bestScore + 1)
+    }
+  }
+
+  const resetClicks = () => {
+    setCardsArray(prevState => {
+      const newArray = prevState.map(item => {
+        return {
+          ...item, 
+          isClicked: false
+        }
+      })
+      return newArray
+    })
+  }
+
   const handleCardClick = (id) => {
-    // checkear que haya clickado en un elemento que antes no se ha clickado, sino reseteamos puntos
-    // en caso de positivo, hacemos shuffle a las cards y actualizamos score
-    // sumar un punto en score y checkear que el bestScore sea más alto
     setCardsArray(prevState => {
       const newArray = prevState.map(item => {
         if (item.id === id) {
+          if (item.isClicked) {
+            resetGame()
+            return item
+          }
+          shuffleCards()
+          addOneToScore()
           return {...item, isClicked: !item.isClicked}
         }
         return item
       })
       return newArray
     })
-
-    setScore(prevState => ({
-      ...prevState,
-      currentScore: prevState.currentScore++,
-    }))
-
   }
 
   const cardItems = cardsArray.map((item) => (
@@ -86,8 +115,8 @@ export default function Main (props) {
   return (
     <MainContainer>
     <Score 
-      currentScore={score.currentScore}
-      bestScore={score.bestScore}
+      currentScore={currentScore}
+      bestScore={bestScore}
     />
     <ItemsContainer>
       {cardItems}
