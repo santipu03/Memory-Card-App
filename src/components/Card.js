@@ -20,9 +20,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-
-  & > div {
-  }
+  text-align: center;
 `
 
 const ImgContainer = styled.img`
@@ -31,4 +29,9 @@ const ImgContainer = styled.img`
   width: 100%;
   border-radius: 5px;
   border: 2px solid #000;
+
+  @media (max-width: 450px) {
+    height: 70px;
+    width: 70px;
+  }
 `

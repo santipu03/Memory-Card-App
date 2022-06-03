@@ -20,4 +20,11 @@ const ScoreContainer = styled.div`
   margin-bottom: 20px;
   background-color: #333;
   color: #fff;
+
+  @media (max-width: 650px) {
+    width: 70%;
+  }
+  @media (max-width: 400px) {
+    width: 90%;
+  }
 `
