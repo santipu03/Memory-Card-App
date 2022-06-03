@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.js": "/Memory-Card-App/static/js/main.586dae13.js",
+    "static/media/ibai.png": "/Memory-Card-App/static/media/ibai.801d12ae0eb67195d143.png",
+    "static/media/nassim.jpg": "/Memory-Card-App/static/media/nassim.595a990001f8c9b465c3.jpg",
+    "static/media/brad.jpg": "/Memory-Card-App/static/media/brad.4455610fa7662515b5c1.jpg",
+    "static/media/victor.jpg": "/Memory-Card-App/static/media/victor.44bb1c742f4556bcada7.jpg",
+    "static/media/leonardo.jpg": "/Memory-Card-App/static/media/leonardo.602be4e38de3daadd6af.jpg",
+    "static/media/tarantino.jpeg": "/Memory-Card-App/static/media/tarantino.0550a926ea03498c1bd3.jpeg",
+    "index.html": "/Memory-Card-App/index.html",
+    "main.586dae13.js.map": "/Memory-Card-App/static/js/main.586dae13.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.586dae13.js"
+  ]
+}
