@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import React from 'react'
 
-export default function Score ({currentScore, bestScore}) {
+export default function Score ({ currentScore, bestScore }) {
   return (
     <ScoreContainer>
       <div>Score: {currentScore}</div>
@@ -19,5 +20,4 @@ const ScoreContainer = styled.div`
   margin-bottom: 20px;
   background-color: #333;
   color: #fff;
-
 `

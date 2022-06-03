@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Footer = styled.footer`
   height: 40px;
@@ -6,5 +6,5 @@ export const Footer = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem
+  font-size: 0.8rem;
 `

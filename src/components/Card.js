@@ -1,10 +1,11 @@
+import React from 'react'
 import styled from 'styled-components'
 
 export default function Card (props) {
   return (
     <CardContainer onClick={() => props.onCardClicked(props.id)}>
       <div>
-        <ImgContainer src={props.img} alt='cardPhoto'></ImgContainer>
+        <ImgContainer src={props.img} alt="cardPhoto"></ImgContainer>
       </div>
       <span>{props.name}</span>
     </CardContainer>
@@ -21,7 +22,6 @@ const CardContainer = styled.div`
   cursor: pointer;
 
   & > div {
-
   }
 `
 

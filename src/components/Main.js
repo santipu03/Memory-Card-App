@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import Score from "./Score"
-import { ItemsContainer } from "./Styles/ItemsContainer.style"
-import { MainContainer } from "./Styles/MainContainer.style"
-import Card from "./Card"
+import React, { useState } from 'react'
+import Score from './Score'
+import { ItemsContainer } from './Styles/ItemsContainer.style'
+import { MainContainer } from './Styles/MainContainer.style'
+import Card from './Card'
 import uniqid from 'uniqid'
 import victor from '../assets/victor.png'
 import Willy from '../assets/willyrex.png'
@@ -21,27 +21,32 @@ export default function Main (props) {
       image: victor,
       isClicked: false,
       id: uniqid()
-    },{
+    },
+    {
       name: 'Willy',
       image: Willy,
       isClicked: false,
       id: uniqid()
-    },{
+    },
+    {
       name: 'Auron',
       image: Auron,
       isClicked: false,
       id: uniqid()
-    },{
+    },
+    {
       name: 'Ibai',
       image: Ibai,
       isClicked: false,
       id: uniqid()
-    },{
+    },
+    {
       name: 'Rubius',
       image: Rubius,
       isClicked: false,
       id: uniqid()
-    },{
+    },
+    {
       name: 'Trump',
       image: Trump,
       isClicked: false,
@@ -57,14 +62,13 @@ export default function Main (props) {
   }
 
   const shuffleCards = () => {
-    setCardsArray(prevState => {
+    setCardsArray((prevState) => {
       for (let i = prevState.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [prevState[i], prevState[j]] = [prevState[j], prevState[i]];
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[prevState[i], prevState[j]] = [prevState[j], prevState[i]]
       }
       return prevState
     })
-    
   }
 
   const addOneToScore = () => {
@@ -77,27 +81,27 @@ export default function Main (props) {
   }
 
   const resetClicks = () => {
-    setCardsArray(prevState => {
-      const newArray = prevState.map(item => {
+    setCardsArray((prevState) => {
+      const newArray = prevState.map((item) => {
         return {
-          ...item, 
+          ...item,
           isClicked: false
         }
       })
       return newArray
     })
   }
-  
+
   const handleCardClick = (id) => {
-    setCardsArray(prevState => {
-      const newArray = prevState.map(item => {
+    setCardsArray((prevState) => {
+      const newArray = prevState.map((item) => {
         if (item.id === id) {
-          if (item.isClicked){
+          if (item.isClicked) {
             resetGame()
             return item
           } else {
             addOneToScore()
-            return {...item, isClicked: true}
+            return { ...item, isClicked: true }
           }
         }
         return item
@@ -120,13 +124,8 @@ export default function Main (props) {
 
   return (
     <MainContainer>
-    <Score 
-      currentScore={currentScore}
-      bestScore={bestScore}
-    />
-    <ItemsContainer>
-      {cardItems}
-    </ItemsContainer>
+      <Score currentScore={currentScore} bestScore={bestScore} />
+      <ItemsContainer>{cardItems}</ItemsContainer>
     </MainContainer>
   )
-}  
+}
