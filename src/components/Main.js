@@ -52,15 +52,20 @@ export default function Main (props) {
   const resetGame = () => {
     console.log('reset game')
 
-    shuffleCards()
     setCurrentScore(0)
     resetClicks()
   }
 
   const shuffleCards = () => {
-    console.log('shuffled')
+    setCardsArray(prevState => {
+      for (let i = prevState.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [prevState[i], prevState[j]] = [prevState[j], prevState[i]];
+      }
+      return prevState
+    })
+    
   }
-
 
   const addOneToScore = () => {
     if (bestScore > currentScore) {
@@ -82,21 +87,22 @@ export default function Main (props) {
       return newArray
     })
   }
-
+  
   const handleCardClick = (id) => {
     setCardsArray(prevState => {
       const newArray = prevState.map(item => {
         if (item.id === id) {
-          if (item.isClicked) {
+          if (item.isClicked){
             resetGame()
             return item
+          } else {
+            addOneToScore()
+            return {...item, isClicked: true}
           }
-          shuffleCards()
-          addOneToScore()
-          return {...item, isClicked: !item.isClicked}
         }
         return item
       })
+      shuffleCards()
       return newArray
     })
   }
