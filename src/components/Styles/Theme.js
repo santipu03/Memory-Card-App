@@ -1,7 +1,10 @@
 const Theme = {
   colors: {
     white: '#fff',
-    black: '#000'
+    black: '#000',
+    headerFooter: '#aaa',
+    bgCards: '#ccc',
+    bgScore: '#333'
   }
 }
 

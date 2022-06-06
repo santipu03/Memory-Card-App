@@ -18,8 +18,8 @@ const ScoreContainer = styled.div`
   border-radius: 5px;
   padding: 15px 30px;
   margin-bottom: 20px;
-  background-color: #333;
-  color: #fff;
+  background-color: ${({ theme }) => theme.colors.bgScore};
+  color: ${({ theme }) => theme.colors.white};
 
   @media (max-width: 650px) {
     width: 70%;

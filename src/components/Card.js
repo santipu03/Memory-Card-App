@@ -13,7 +13,7 @@ export default function Card (props) {
 }
 
 const CardContainer = styled.div`
-  background-color: #ccc;
+  background-color:${({ theme }) => theme.colors.bgCards};
   border-radius: 5px;
   padding: 10px;
   display: flex;
@@ -28,7 +28,7 @@ const ImgContainer = styled.img`
   height: 100px;
   width: 100%;
   border-radius: 5px;
-  border: 2px solid #000;
+  border: 2px solid ${({ theme }) => theme.colors.black};
 
   @media (max-width: 450px) {
     height: 70px;

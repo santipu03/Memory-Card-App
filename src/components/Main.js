@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Score from './Score'
 import { ItemsContainer } from './Styles/ItemsContainer.style'
-import { MainContainer } from './Styles/MainContainer.style'
+import styled from 'styled-components'
 import Card from './Card'
 import uniqid from 'uniqid'
 import victor from '../assets/victor.jpg'
@@ -171,3 +171,8 @@ export default function Main (props) {
     </MainContainer>
   )
 }
+
+const MainContainer = styled.main`
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+`
